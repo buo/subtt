@@ -1,5 +1,7 @@
 # subtt
 
+Subtt is a command line tool to help you convert a subtitle file into another format.
+
 ## Usage
 
 ```sh
