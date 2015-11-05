@@ -15,7 +15,7 @@ module Subtt
           to.set nextSync[0] - 10
         end
 
-        srt.write "#{i}\n#{from} --> #{to}\n#{e[1]}\n\n"
+        srt.write "#{i+1}\n#{from} --> #{to}\n#{e[1]}\n\n"
       end
     end
   end
