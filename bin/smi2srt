@@ -1,0 +1,21 @@
+#!/bin/sh
+
+chdir() {
+  cd "$@" >/dev/null
+}
+
+SUBTT_DIRECTORY=$(chdir "${0%/*}/.." && pwd -P)
+
+SMI2SRT_SYMLINK=$(readlink "$0")
+if [ -n "$SMI2SRT_SYMLINK" ]
+then
+  SUBTT_DIRECTORY=$(dirname "$SMI2SRT_SYMLINK")
+fi
+
+if [ $# -lt 1 ]
+then
+  echo 'Usage: smi2srt <smi>'
+  exit 1
+fi
+
+exec ruby -W0 "$SUBTT_DIRECTORY/lib/subtt/cli.rb" smi2srt "$@"
