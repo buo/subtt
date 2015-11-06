@@ -1,3 +1,5 @@
+require 'iconv'
+
 module Subtt
   class SAMI
     include Enumerable
