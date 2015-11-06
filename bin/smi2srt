@@ -1,21 +1,11 @@
-#!/bin/sh
+#!/usr/bin/env ruby
+# encoding: utf-8
 
-chdir() {
-  cd "$@" >/dev/null
-}
+$:.unshift File.expand_path('../../lib/', __FILE__)
+require 'subtt'
 
-SUBTT_DIRECTORY=$(chdir "${0%/*}/.." && pwd -P)
-
-SMI2SRT_SYMLINK=$(readlink "$0")
-if [ -n "$SMI2SRT_SYMLINK" ]
-then
-  SUBTT_DIRECTORY=$(dirname "$SMI2SRT_SYMLINK")
-fi
-
-if [ $# -lt 1 ]
-then
-  echo 'Usage: smi2srt <smi>'
-  exit 1
-fi
-
-exec ruby -W0 "$SUBTT_DIRECTORY/lib/subtt/cli.rb" smi2srt "$@"
+if ARGV.length < 1
+  puts "Usage: smi2srt <.smi>"
+else
+  Subtt.smi2srt ARGV.first
+end
