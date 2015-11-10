@@ -1,3 +1,4 @@
+[![Gem Version](https://badge.fury.io/rb/subtt.svg)](https://badge.fury.io/rb/subtt)
 # subtt
 
 Subtt is a command line tool to help you convert a subtitle file into another format.
